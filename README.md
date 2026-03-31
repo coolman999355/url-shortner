@@ -10,6 +10,7 @@ A simple Python-based URL shortener that allows you to store, retrieve, and dele
 * 💾 Persistent storage using JSON
 * ⚠️ Error handling for missing or corrupted files
 * 📋automaticlly copies long url to clipboard
+* 🌐automattically open website in broswer
 
 ## 🧠 How It Works
 
@@ -60,7 +61,6 @@ Then choose an option:
 * 🔒 Prevent duplicate short names
 * 🎲 Auto-generate short URLs
 * 🖼️ Add GUI (Tkinter)
-* 🌐 Open URLs directly in browser
 * 📋 List all saved URLs
 
 ## 👨‍💻 Author
