@@ -11,10 +11,19 @@ def save_url(short_name, original_url_name):
     except (FileNotFoundError, json.JSONDecodeError):
         url_data = {}
 
+    if short_name in url_data:
+        print("Short URL name is not allowed to be the same.")
+        return
+
+    if original_url_name in url_data.values():
+        print("Long URL name is not allowed to be the same.")
+        return
+
     url_data[short_name] = original_url_name
 
     with open(file_name, "w", encoding="utf-8") as file:
         json.dump(url_data, file, indent=4)
+
 
 def get_url(short_name):
     file_name = "short_urls.json"
