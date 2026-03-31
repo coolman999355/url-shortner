@@ -62,7 +62,7 @@ def remove_url(short_name):
     print(f"deleted {short_name}")
 def open_website():
     name = input("enter short name for url to open: ")
-    long_url_name = print_url(name)  
+    long_url_name = get_url(name)  
     if long_url_name:                 
         try:
             webbrowser.open(long_url_name)
