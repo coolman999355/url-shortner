@@ -1,5 +1,6 @@
 import pyperclip
 import json
+import webbrowser
 print("welcome to url shortner")
 def save_url(short_name, original_url_name):
     file_name = "short_urls.json"
@@ -15,7 +16,7 @@ def save_url(short_name, original_url_name):
     with open(file_name, "w", encoding="utf-8") as file:
         json.dump(url_data, file, indent=4)
 
-def print_url(short_name):
+def get_url(short_name):
     file_name = "short_urls.json"
 
     try:
@@ -37,6 +38,7 @@ def print_url(short_name):
     print("The long URL has been copied to your clipboard ")
 
     print(f"{short_name}: {long_url_name}")
+    return long_url_name
 
 
 def remove_url(short_name):
@@ -58,6 +60,15 @@ def remove_url(short_name):
     with open(file_name, "w", encoding="utf-8") as file:
         json.dump(url_data, file, indent=4)
     print(f"deleted {short_name}")
+def open_website():
+    name = input("enter short name for url to open: ")
+    long_url_name = print_url(name)  
+    if long_url_name:                 
+        try:
+            webbrowser.open(long_url_name)
+            print(f"Opened {long_url_name} in your browser!")
+        except:
+            print("Error trying to open website")
 
 
 
@@ -65,6 +76,7 @@ while True:
     print("enter 1 for saving new url names")
     print("enter 2 for reading url by short url name")
     print("enter 3 for deleting url")
+    print("enter 4 to open website from short name")
     print("\n")
     option = input("please enter one of options above: ")
 
@@ -74,10 +86,12 @@ while True:
         save_url(short_url_name, long_url)
     elif option == "2":
         short_url = input("enter short url name: ")
-        print_url(short_url)
+        get_url(short_url)
     elif option == "3":
         name_of_short_url_name = input("enter short url name: ")
         remove_url(name_of_short_url_name)
+    elif option == "4":
+        open_website()
     else:
         print("invalid option")
 
