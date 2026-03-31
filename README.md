@@ -9,7 +9,7 @@ A simple Python-based URL shortener that allows you to store, retrieve, and dele
 * 🗑️ Delete saved URLs
 * 💾 Persistent storage using JSON
 * ⚠️ Error handling for missing or corrupted files
-* 📋automaticlly copies lon url to clipboard
+* 📋automaticlly copies long url to clipboard
 
 ## 🧠 How It Works
 
