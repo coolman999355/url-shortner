@@ -1,5 +1,6 @@
+import pyperclip
 import json
-print("welcom to url shortner")
+print("welcome to url shortner")
 def save_url(short_name, original_url_name):
     file_name = "short_urls.json"
 
@@ -31,6 +32,11 @@ def print_url(short_name):
         return
 
     print(f"{short_name}: {long_url_name}")
+    
+    pyperclip.copy(long_url_name)
+    print("The long URL has been copied to your clipboard ")
+
+    print(f"{short_name}: {long_url_name}")
 
 
 def remove_url(short_name):
@@ -51,6 +57,7 @@ def remove_url(short_name):
 
     with open(file_name, "w", encoding="utf-8") as file:
         json.dump(url_data, file, indent=4)
+    print(f"deleted {short_name}")
 
 
 
